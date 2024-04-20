@@ -5,7 +5,7 @@ import Login from "./Login.js";
 const withAuth = (WrappedComponent) => {
   const WithAuth = (props) => {
     const navigate = useNavigate();
-    const isAuthenticated = Boolean(window.localStorage.getItem('userId'));
+    const isAuthenticated = Boolean(window.localStorage.getItem('username'));
 
     React.useEffect(() => {
       if (!isAuthenticated) {
@@ -24,3 +24,23 @@ const withAuth = (WrappedComponent) => {
 };
 
 export default withAuth;
+
+
+// import React from 'react';
+// // import { useNavigate } from 'react-router-dom';
+
+// const withAuth = (WrappedComponent) => {
+//   const WithAuth = (props) => {
+//     // const navigate = useNavigate();
+
+//     // Since we assume the user is always authenticated, no need to check
+//     // If not authenticated, it won't redirect to the login page
+
+//     // Render the wrapped component with the provided props
+//     return <WrappedComponent {...props} />;
+//   };
+
+//   return WithAuth;
+// };
+
+// export default withAuth;
