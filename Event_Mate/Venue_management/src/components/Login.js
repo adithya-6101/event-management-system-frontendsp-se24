@@ -27,17 +27,37 @@ const Login = () => {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(info),
+
+                
             });
+            window.localStorage.setItem('username', info.email);
+
             if (response.status === 200) {
                 const data = await response.json();
                 console.log("Login successful:", data);
+                
+                // window.localStorage.setItem("role", info.role);
+                // window.localStorage.setItem("userEmail", data.email);
+                // window.localStorage.setItem("username", info.username);
+                
+
             
                 if (data.status === "pending") {
-                    console.log(info)
-                    window.localStorage.setItem('username', info.email);
-                    window.localStorage.setItem('userId', data.data.userId);
-                    
+                    window.localStorage.setItem("user_ID", data.data.userId);
+                    window.localStorage.setItem('email', data.data.email);
+
+                    // console.log(localStorage.getItem("user_ID"))
+
                     setInfo({...info, userId: data.data.userId});
+
+                    console.log(info)
+                    
+
+                    
+                    window.localStorage.setItem("userId", data.userId);
+
+
+                    // window.localStorage.setItem("userId", data.user.user_id);
                     setLoginInfo(true); // Show OTP input  
                 }
             } else {
@@ -67,9 +87,17 @@ const Login = () => {
             if (response.status === 200) {
                 const data = await response.json();
                 console.log("2fa verify successful:", data);
+
                 window.localStorage.setItem('token', data.token);
                 navigate("/");
-                window.location.reload();
+                // console.log(info.email)
+
+                
+                // console.log(localStorage.getItem('userEmail'))
+                // console.log(localStorage.getItem('role'))
+
+                // window.location.reload();
+
             } else {
                 const errorData = await response.json();
                 console.error("2fa verify failed:", errorData);
