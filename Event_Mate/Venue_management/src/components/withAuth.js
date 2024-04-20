@@ -5,7 +5,7 @@ import Login from "./Login.js";
 const withAuth = (WrappedComponent) => {
   const WithAuth = (props) => {
     const navigate = useNavigate();
-    const isAuthenticated = Boolean(window.localStorage.getItem('username'));
+    const isAuthenticated = Boolean(window.localStorage.getItem('user_ID'));
 
     React.useEffect(() => {
       if (!isAuthenticated) {
