@@ -19,6 +19,8 @@ import VenuesTable from "./components/ViewPage.js";
 import FriendInfo from "./components/friend_info.js";
 import UserPage from "./components/userPage.js";
 import EditProfileDetails from "./components/editProfileDetails.js";
+import OwnerView from "./components/OwnerView.js";
+import AddVenueForm from "./components/AddVenueForm.js";
 
 
 
@@ -43,6 +45,8 @@ function App() {
           <Route path='/edit-profile-details' element={<EditProfileDetails />} />
           <Route path='/invite-friend' element={<InviteFriend />} />
           <Route path='/friend_info' element={<FriendInfo/>} />
+          <Route path='/OwnerView' element={<OwnerView/>} />
+          <Route path='/AddVenueForm' element={<AddVenueForm/>}/>
       </Routes>
     </BrowserRouter>
 
