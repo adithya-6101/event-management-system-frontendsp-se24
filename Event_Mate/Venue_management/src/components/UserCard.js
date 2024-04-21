@@ -117,6 +117,9 @@ function UserCard(  ) {
             if (response.status === 200) {
                 const userData = await response.json();
                 setUserInfo(userData);
+
+                window.localStorage.setItem('role',userInfo.role)
+                console.log(localStorage.getItem("role"))
                 console.log(userData)
 
                 // console.log(userInfo)
