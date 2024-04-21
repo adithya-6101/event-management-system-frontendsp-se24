@@ -45,7 +45,7 @@ const Login = () => {
                 if (data.status === "pending") {
                     window.localStorage.setItem("user_ID", data.data.userId);
                     window.localStorage.setItem('email', data.data.email);
-
+                    
                     // console.log(localStorage.getItem("user_ID"))
 
                     setInfo({...info, userId: data.data.userId});
@@ -96,7 +96,7 @@ const Login = () => {
                 // console.log(localStorage.getItem('userEmail'))
                 // console.log(localStorage.getItem('role'))
 
-                // window.location.reload();
+                window.location.reload();
 
             } else {
                 const errorData = await response.json();
